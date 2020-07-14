@@ -16,7 +16,9 @@
   </p>
   <p><span class="glyphicon glyphicon-time"></span>{{$post->created_at->diffForHumans()}}</p>
   <hr>
-  <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+  <!-- <img class="img-responsive" src="http://placehold.it/900x300" alt=""> -->
+  <img class="img-responsive" src="{{$post->photo ? '/cmsproject/public'.$post->photo->file : $post->photoPlaceHolder()}}" alt="">
+
   <hr>
   <p>{!! Str::limit($post->body,200) !!}</p>
   <a class="btn btn-primary" href="{{route('home.post',$post->slug)}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
